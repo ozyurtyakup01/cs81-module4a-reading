@@ -32,6 +32,7 @@ function totalReadingMinutes(log) {
 // Returns the book read most frequently
 function mostReadBook(log) {
   const bookCounts = {};
+  // iterate each entry of given log
   for (let entry of log) {
     if (!bookCounts[entry.book]) {
       bookCounts[entry.book] = 1;
@@ -64,7 +65,7 @@ printDailySummary(readingLog);
 console.log("Total minutes read:", totalReadingMinutes(readingLog));
 console.log("Most read book:", mostReadBook(readingLog));
 
-
-addReadBook("Sunday", "Harry Potter and the Philosopher's Stone", 45);
+printDailySummary(readingLog);
+addReadBook("Sunday", "The Hobbit", 240);
 console.log("Total minutes read:", totalReadingMinutes(readingLog));
 console.log("Most read book:", mostReadBook(readingLog));
