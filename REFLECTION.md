@@ -1,0 +1,1 @@
+Assigment combines arrays and objects well. For me syntax is confusing since it's similiar to other languages. For improvement part everything looks normal to me and I couldn't think of different logic, so I wrote a new function.
