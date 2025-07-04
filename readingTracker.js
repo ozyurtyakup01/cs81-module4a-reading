@@ -8,6 +8,8 @@ const readingLog = [
 ];
 
 // Adds a new reading entry to the log
+// Input: String,Number
+// Output - 
 function addReadBook(day, book, minutes) {
   // newEntry object with inputs
   const newEntry = { day, book, minutes };
@@ -30,6 +32,8 @@ function totalReadingMinutes(log) {
 }
 
 // Returns the book read most frequently
+// Input: Array
+// Output: String
 function mostReadBook(log) {
   // object to count books
   const bookCounts = {};
@@ -60,11 +64,39 @@ function mostReadBook(log) {
 }
 
 // Prints a summary of minutes read per day
+// Input: Array
+// Output: String
 function printDailySummary(log) {
   for (let entry of log) {
     console.log(`${entry.day}: ${entry.minutes} mins reading "${entry.book}"`);
   }
 }
+
+// improvement
+// Returns total read time for each book
+// Input: Array
+// Output: Object with book total read time pair
+/*
+function minutesRead(log)
+{
+  // array to get reading time
+  const minRead = {};
+  // iterate each element of given log
+  for (let entry of log) 
+  {
+    if (minRead[entry.book]) {
+      // if in the list, update
+      minRead[entry.book] += entry.minutes;
+    } 
+    else 
+    {
+      // if not, create entry
+      minRead[entry.book] = entry.minutes;
+    }
+  }
+  return minRead;
+}
+*/
 
 // Example usage
 addReadBook("Saturday", "Dune", 50);
@@ -76,4 +108,5 @@ addReadBook("Monday", "The Hobbit", 90);
 printDailySummary(readingLog);
 console.log("Total minutes read:", totalReadingMinutes(readingLog));
 console.log("Most read book:", mostReadBook(readingLog));
+
 
