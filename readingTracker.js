@@ -31,12 +31,16 @@ function totalReadingMinutes(log) {
 
 // Returns the book read most frequently
 function mostReadBook(log) {
+  // object to count books
   const bookCounts = {};
-  // iterate each entry of given log
+  // iterate each element of given log
   for (let entry of log) {
+    // check if the element already counted
     if (!bookCounts[entry.book]) {
+      //if not, update count to 1
       bookCounts[entry.book] = 1;
     } else {
+      // if already counted, increase count by 1
       bookCounts[entry.book]++;
     }
   }
@@ -44,8 +48,11 @@ function mostReadBook(log) {
   let maxBook = null;
   let maxCount = 0;
   for (let book in bookCounts) {
+    // if current element count greater then max,
     if (bookCounts[book] > maxCount) {
+      // current element new most frequent
       maxBook = book;
+      // new max count is current element's count
       maxCount = bookCounts[book];
     }
   }
@@ -61,11 +68,12 @@ function printDailySummary(log) {
 
 // Example usage
 addReadBook("Saturday", "Dune", 50);
+
+// Test The Hobbit should most read and total 450 min
+addReadBook("Saturday", "The Hobbit", 90);
+addReadBook("Sunday", "The Hobbit", 90);
+addReadBook("Monday", "The Hobbit", 90);
 printDailySummary(readingLog);
 console.log("Total minutes read:", totalReadingMinutes(readingLog));
 console.log("Most read book:", mostReadBook(readingLog));
 
-printDailySummary(readingLog);
-addReadBook("Sunday", "The Hobbit", 240);
-console.log("Total minutes read:", totalReadingMinutes(readingLog));
-console.log("Most read book:", mostReadBook(readingLog));
